@@ -17,6 +17,7 @@ This repository provides a **generic Terraform setup** to deploy an infrastructu
 
 ### Prerequisites
 - Ensure you have **Terraform** installed.
+- Ensure you have **Terragrunt** installed.
 - Configure your AWS credentials locally using `aws configure`.
 
 ### Steps to Deploy
@@ -28,30 +29,32 @@ This repository provides a **generic Terraform setup** to deploy an infrastructu
    ```
 
 2. **Customize Variables**  
-   Edit the `variables.yml` file to set your project-specific values:
+   Edit the `variables.yml` and `terragrunt.hcl` files to set your project-specific values:
    - **Namespace**: Project name
    - **Environment**: E.g., `dev`, `prod`
    - **VPC CIDR and Subnets**: Define your networking details.
    - **Containers**: Configure ECS container settings (image, ports, scaling, etc.).
    - **RDS**: Set database details like engine type, username, and storage.
 
-3. **Initialize Terraform**  
+3. **Initialize Terragrunt**  
    Run the following commands to initialize the modules:
    ```bash
-   terraform init
+   terragrunt init
    ```
 
 4. **Plan and Apply**  
    Review the changes and deploy:
+   
    ```bash
-   terraform plan
-   terraform apply
+   cd envs/dev or envs/prod (according to deployment type)
+   terragrunt run-all plan
+   terragrunt run-all apply
    ```
 
 5. **Clean Up (Optional)**  
    To destroy the resources:
    ```bash
-   terraform destroy
+   terragrunt run-all destroy
    ```
 
 ---
@@ -63,10 +66,10 @@ This repository provides a **generic Terraform setup** to deploy an infrastructu
 - Use **Fargate**: Set `launch_type` to `"FARGATE"`. The instance type is not required.
 
 ### Backup Vault
-- Modify `backup_vault_name` and backup schedule (`bp_rule_schedule`) in `variables.yml` to suit your RDS backup needs.
+- Modify `backup_vault_name` and backup schedule (`bp_rule_schedule`) in `terragrunt.hcl` to suit your RDS backup needs.
 
 ### RDS
-- Customize the RDS configuration, such as `engine`, `db_name`, and `port`, in `variables.yml`.
+- Customize the RDS configuration, such as `engine`, `db_name`, and `port`, in `terragrunt.hcl`.
 
 ---
 
