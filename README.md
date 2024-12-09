@@ -37,13 +37,16 @@ This repository provides a **generic Terraform setup** to deploy an infrastructu
    - **RDS**: Set database details like engine type, username, and storage.
 
 3. **Set the working directory**
-   Run the following commands to initialize the modules:
    ```bash
    cd envs/dev or envs/prod (according to deployment type)
-   terragrunt init
    ```
 
-4. **Plan and Apply**  
+4. **initialize Terragrunt**
+   Run the following commands to initialize the modules:
+   ```bash
+   terragrunt init
+   ```
+5. **Plan and Apply**  
    Review the changes and deploy:
    
    ```bash
@@ -51,7 +54,7 @@ This repository provides a **generic Terraform setup** to deploy an infrastructu
    terragrunt run-all apply
    ```
 
-5. **Clean Up (Optional)**  
+6. **Clean Up (Optional)**  
    To destroy the resources:
    ```bash
    terragrunt run-all destroy
