@@ -36,7 +36,8 @@ This repository provides a **generic Terraform setup** to deploy an infrastructu
    - **Containers**: Configure ECS container settings (image, ports, scaling, etc.).
    - **RDS**: Set database details like engine type, username, and storage.
 
-3. **Initialize Terragrunt**  
+3. **Set the working directory**
+   cd envs/dev or envs/prod (according to deployment type)
    Run the following commands to initialize the modules:
    ```bash
    terragrunt init
@@ -46,7 +47,6 @@ This repository provides a **generic Terraform setup** to deploy an infrastructu
    Review the changes and deploy:
    
    ```bash
-   cd envs/dev or envs/prod (according to deployment type)
    terragrunt run-all plan
    terragrunt run-all apply
    ```
