@@ -123,9 +123,9 @@ variable "launch_type" {
   default = "fargate"
 }
 
-# variable "common_tags" {
-#   type = map(string)
-# }
+variable "common_tags" {
+  type = map(string)
+}
 
 variable "containers" {
   type = map(any)

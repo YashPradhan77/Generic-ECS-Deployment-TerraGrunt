@@ -58,29 +58,3 @@ resource "aws_ecs_task_definition" "fargate_default" {
   ])
 }
 
-# resource "aws_vpc_endpoint" "secrets_manager" {
-#   vpc_id       = var.vpc_id
-#   service_name = "com.amazonaws.${data.aws_region.current.name}.secretsmanager"
-#   vpc_endpoint_type = "Interface"
-#   subnet_ids   = var.private_subnet_ids
-#   security_group_ids = [aws_security_group.allow_secrets_access.id]
-# }
-
-# resource "aws_security_group" "allow_secrets_access" {
-#   vpc_id = var.vpc_id
-
-#   ingress {
-#     from_port   = 443
-#     to_port     = 443
-#     protocol    = "tcp"
-#     cidr_blocks = ["0.0.0.0/0"] # Or restrict to internal IP ranges
-#   }
-
-#   egress {
-#     from_port   = 0
-#     to_port     = 0
-#     protocol    = "-1"
-#     cidr_blocks = ["0.0.0.0/0"]
-#   }
-# }
-

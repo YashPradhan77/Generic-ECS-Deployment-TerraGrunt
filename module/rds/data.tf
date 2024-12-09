@@ -1,22 +1,4 @@
-# data "aws_subnet" "db_subnet" {
-#   id = var.database_subnets_ids[0]
-# }
-
-
 data "aws_caller_identity" "current" {}
-
-
-# data "aws_db_instance" "db" {
-#   db_instance_identifier = var.identifier
-# }
-
-# data "aws_db_subnet_group" "subnet_group" {
-#   name = data.aws_db_instance.db.db_subnet_group
-# } 
-
-# output "subnet_ids" {
-#   value = data.aws_db_subnet_group.subnet_group.subnet_ids
-# }
 
 # BACKUP VAULT 
 data "aws_iam_policy_document" "backup_policy" {

@@ -24,8 +24,8 @@ resource "aws_security_group" "rds" {
   }
 
 
-  # tags = merge({
-  #   Name = "${var.namespace}_RDS_security_group${var.environment}"
-  # }, var.common_tags)
+  tags = merge({
+    Name = "${var.namespace}_RDS_security_group${var.environment}"
+  }, var.common_tags)
 }
 

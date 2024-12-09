@@ -41,5 +41,12 @@ inputs = {
   schedule_expression_timezone  = "Asia/Singapore"
   start_window                  = 60
   completion_window             = 120
+
+  common_tags = {
+    Terraform   = "true"
+    Environment = "dev"
+    Team        = "engineering"
+    Project     = "my-project"
+  }
 }
 

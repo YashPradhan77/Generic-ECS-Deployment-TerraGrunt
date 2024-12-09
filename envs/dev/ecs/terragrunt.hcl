@@ -30,4 +30,11 @@ inputs = {
   ec2_desired_capacity                        = 1
   aws_acm_certificate_arn                     = "arn:aws:acm:ap-southeast-1:711387124065:certificate/50a1d91f-b79c-4565-8e4f-fd6e0cc8e7b2"
   enable_cross_zone_load_balancing            = true
+
+  common_tags = {
+    Terraform   = "true"
+    Environment = "dev"
+    Team        = "engineering"
+    Project     = "my-project"
+  }
 }

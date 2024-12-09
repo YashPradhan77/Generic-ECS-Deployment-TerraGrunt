@@ -74,8 +74,8 @@ resource "aws_security_group" "ecs_container_instance" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # tags = merge({
-  #   Name = "${var.namespace}_ECS_Task_SecurityGroup_${var.environment}"
-  # }, var.common_tags)
+  tags = merge({
+    Name = "${var.namespace}_ECS_Task_SecurityGroup_${var.environment}"
+  }, var.common_tags)
 
 }

@@ -31,9 +31,9 @@ module "db" {
   monitoring_interval  = "30"
   monitoring_role_name = "MyRDSMonitoringRole"
 
-  # tags = merge({
-  #   name = "${var.namespace}_RDS_${var.environment}"
-  # }, var.common_tags)
+  tags = merge({
+    name = "${var.namespace}_RDS_${var.environment}"
+  }, var.common_tags)
 
 
 

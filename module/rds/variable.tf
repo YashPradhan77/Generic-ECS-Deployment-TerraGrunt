@@ -155,6 +155,10 @@ variable "delete_after" {
   type        = number
 }
 
+variable "common_tags" {
+  description = "A map of common tags to be applied to all resources"
+  type        = map(string)
+}
 
 variable "schedule_expression_timezone" {}
 variable "start_window" {}

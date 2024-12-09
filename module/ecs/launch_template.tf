@@ -19,7 +19,7 @@ resource "aws_launch_template" "ecs_launch_template" {
     enabled = true
   }
 
-  # tags = var.common_tags
+  tags = var.common_tags
 }
 
 data "template_file" "user_data" {
