@@ -1,0 +1,56 @@
+# EC2 Computing variables
+app_deployment:
+
+  # ECS variables
+  containers:
+    nginx:
+      desired_task_count: "1"
+      image_uri: "nginx"
+      container_port: "80"
+      cpu_units: "512"
+      memory: "1024"
+      task_min_count: "1"
+      task_max_count: "10"
+      cpu_target_tracking_desired_value: "80"
+      memory_target_tracking_desired_value: "80"
+      custom_origin_host_header:
+      - "dev.virtues.agency"
+      - "dev2.virtues.agency"
+      healthcheck_endpoint: "/"
+      health_check_enabled: "true"
+      envs:
+      - name: "ENV_NAME"
+        value: "Test-nginx"
+      secrets:
+      - name: "ENV_SEC"
+        valueFrom: "arn:aws:secretsmanager:ap-southeast-1:711387124065:secret:DB_ALL_CONFIG-5Pc5ZV"
+      tags:
+      - name:
+        key:
+
+
+    apache:
+      desired_task_count: "1"
+      image_uri: "httpd"
+      container_port: "80"
+      cpu_units: "512"
+      memory: "1024"
+      task_min_count: "1"
+      task_max_count: "10"
+      cpu_target_tracking_desired_value: "80" #container target_value
+      memory_target_tracking_desired_value: "80" #container target_value
+      custom_origin_host_header:
+      - "dev1.virtues.agency"
+      healthcheck_endpoint: "/"
+      health_check_enabled: "true"
+      envs:
+      - name: "ENV_NAME"
+        value: "Test-apache"
+      secrets:
+      - name: "DB_PASSWORD"
+        valueFrom: "arn:aws:secretsmanager:ap-southeast-1:711387124065:secret:DB_ALL_CONFIG-5Pc5ZV"
+      tags:
+      - name:
+        key:
+
+
