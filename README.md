@@ -41,7 +41,7 @@ This repository provides a **generic Terraform setup** to deploy an infrastructu
    cd envs/dev or envs/prod (according to deployment type)
    ```
 
-4. **initialize Terragrunt**
+4. **Initialize Terragrunt**   
    Run the following commands to initialize the modules:
    ```bash
    terragrunt init
