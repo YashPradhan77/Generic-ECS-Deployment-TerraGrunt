@@ -1,14 +1,13 @@
-# Terraform Deployment Modules for ECS 
+# TerraGrunt Deployment Modules for ECS 
 
-This repository provides a **generic Terraform setup** to deploy an infrastructure that includes ECS with EC2 or Fargate, RDS, Backup Vault, and CI/CD roles. Configuration inputs are customizable via the `variables.yml` file.
+This repository provides a **generic TerraGrunt setup** to deploy an infrastructure that includes ECS with EC2 or Fargate, RDS, Backup Vault, and CI/CD roles. Configuration inputs are customizable via the `variables.yml` & `terragrunt.hcl` files.
 
 ---
 
 ## Features
 - **VPC Module**: Creates VPC with public, private, and database subnets.
 - **ECS Module**: Deploy ECS using EC2 or Fargate based on your requirements.
-- **RDS Module**: Sets up an RDS database with backup vault integration.
-- **Backup Vault**: Configures automated backup for the RDS instance.
+- **RDS Module**: Sets up an RDS database with backup vault integration & Configures automated backup for the RDS instance.
 - **CI/CD Role**: Creates an OIDC role for GitHub Actions integration.
 
 ---
@@ -16,8 +15,7 @@ This repository provides a **generic Terraform setup** to deploy an infrastructu
 ## Quick Start
 
 ### Prerequisites
-- Ensure you have **Terraform** installed.
-- Ensure you have **Terragrunt** installed.
+- Ensure you have **Terraform** and **Terragrunt** installed.
 - Configure your AWS credentials locally using `aws configure`.
 
 ### Steps to Deploy
