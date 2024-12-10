@@ -3,14 +3,11 @@
 resource "aws_iam_role" "ec2_instance_role" {
   name               = "${var.namespace}_EC2_InstanceRole_${var.environment}"
   assume_role_policy = data.aws_iam_policy_document.ec2_instance_role_policy.json
-
-
 }
 
 resource "aws_iam_role_policy_attachment" "ec2_instance_role_policy" {
   role       = aws_iam_role.ec2_instance_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
-
 }
 
 
@@ -45,8 +42,6 @@ resource "aws_iam_role" "ecs_service_role" {
   for_each           = var.containers
   name               = "${each.key}_ecs_role"
   assume_role_policy = data.aws_iam_policy_document.ecs_service_policy.json
-
-
 }
 
 data "aws_iam_policy_document" "ecs_service_policy" {
@@ -95,8 +90,6 @@ data "aws_iam_policy_document" "ecs_service_role_policy" {
 resource "aws_iam_role" "ecs_task_execution_role" {
   name               = "${var.namespace}_ECS_TaskExecutionRole_${var.environment}"
   assume_role_policy = data.aws_iam_policy_document.task_assume_role_policy.json
-
-
 }
 
 data "aws_iam_policy_document" "task_assume_role_policy" {
@@ -126,6 +119,4 @@ resource "aws_iam_role_policy_attachment" "secret_manager_role_policy" {
 resource "aws_iam_role" "ecs_task_iam_role" {
   name               = "${var.namespace}_ECS_TaskIAMRole_${var.environment}"
   assume_role_policy = data.aws_iam_policy_document.task_assume_role_policy.json
-
-
 }

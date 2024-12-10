@@ -77,7 +77,7 @@ This repository provides a **generic TerraGrunt setup** to deploy an infrastruct
 ## Outputs
 - **ECS Cluster**: Name of the deployed ECS cluster.
 - **RDS Endpoint**: URL for the RDS instance.
-- **Backup Vault**: ARN of the created backup vault.
+- **lb DNS Name**: DNS name of the alb.
 
 ---
 
