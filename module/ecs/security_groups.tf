@@ -42,23 +42,23 @@ resource "aws_security_group" "ecs_container_instance" {
   vpc_id      = var.vpc_id
 
   ingress {
-    description = "Allow ingress traffic"
+    description     = "Allow ingress traffic"
     from_port       = 1024
     to_port         = 65535
     protocol        = "tcp"
     security_groups = [aws_security_group.alb.id]
   }
 
-    ingress {
-    description = "Allow ingress traffic from ALB on HTTP only"
+  ingress {
+    description     = "Allow ingress traffic from ALB on HTTP only"
     from_port       = 80
     to_port         = 80
     protocol        = "tcp"
     security_groups = [aws_security_group.alb.id]
   }
 
-    ingress {
-    description = "Allow ingress traffic from ALB on HTTPS only"
+  ingress {
+    description     = "Allow ingress traffic from ALB on HTTPS only"
     from_port       = 443
     to_port         = 443
     protocol        = "tcp"
